@@ -1,0 +1,21 @@
+# Data files
+*.json
+!.claude/skills/**/*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# HTML output
+*.html
+
+# OS
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
