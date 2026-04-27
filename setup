@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_DIR="$SCRIPT_DIR/skills"
+TARGET_DIR="$HOME/.claude/skills"
+
+if [ ! -d "$SKILLS_DIR" ]; then
+    echo "Error: skills/ directory not found at $SKILLS_DIR"
+    exit 1
+fi
+
+echo "Installing skills from $SKILLS_DIR to $TARGET_DIR"
+
+mkdir -p "$TARGET_DIR"
+
+for skill in "$SKILLS_DIR"/*; do
+    if [ -d "$skill" ]; then
+        skill_name="$(basename "$skill")"
+        echo "  Installing $skill_name..."
+        cp -r "$skill" "$TARGET_DIR/"
+    fi
+done
+
+echo "Done. Installed $(ls -1 "$SKILLS_DIR" | wc -l | tr -d ' ') skills."

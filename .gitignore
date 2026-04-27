@@ -1,6 +1,7 @@
 # Data files
 *.json
 !.claude/skills/**/*.json
+!skills/**/*.json
 
 # Python
 __pycache__/
@@ -19,3 +20,5 @@ __pycache__/
 
 # Logs
 *.log
+.work/
+.claude/
